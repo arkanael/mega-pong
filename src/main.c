@@ -2,13 +2,22 @@
 #include <resources.h>
 
 Sprite* ball;
+Sprite* player;
 
+/*VARIAVEIS PARA DEFINIR A BOLA*/
 int ball_pos_x = 100;
 int ball_pos_y = 100;
 int ball_vel_x = 1;
 int ball_vel_y = 1;
 int ball_width = 8;
 int ball_height = 8;
+
+/*VARIAVEIS PARA DEFINIR O PLAYER*/
+int player_pos_x = 144;
+const int player_pos_y = 200;
+int player_vel_x = 0;
+const int player_width = 32;
+const int player_height = 8;
 
 /*CONSTANTES PARA FAZER A BOLA QUICAR*/
 const int LEFT_EDGE = 0;
@@ -24,6 +33,7 @@ int main()
 	VDP_setScreenHeight224();
 
 	ball = SPR_addSprite(&imgball, 100, 100, TILE_ATTR(PAL1, FALSE, FALSE, FALSE));
+	player = SPR_addSprite(&paddle, player_pos_x, player_pos_y, TILE_ATTR(PAL1, 0, FALSE, FALSE));
 
 	VDP_loadTileSet(bgtile.tileset,1,DMA);
 	PAL_setPalette(PAL1, bgtile.palette->data,DMA);
